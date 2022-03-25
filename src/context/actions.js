@@ -1,23 +1,11 @@
-import {useReducer, useContext} from 'react'
 
-const AppContext = React.createContext()
+// ALERT MODALS
+export const DISPLAY_ALERT = "DISPLAY_ALERT"
+export const CLEAR_ALERT = "CLEAR_ALERT"
 
-const initialState = {
-    isLoading: false,
-    showAlert: false,
-    alertText: "",
-    alertType: "",
-    user: user ? JSON.parse(user) : null,
-    token: token,
-    userLocation: userLocation || "",
-  };
+// REGISTRATION ACTIONS
+export const REGISTER_USER_BEGIN = "REGISTER_USER_BEGIN"
+export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS"
+export const REGISTER_USER_ERROR = "REGISTER_USER_FAILURE"
 
-const AppProvider = ({children}) => {
-    const [state, dispatch] = useReducer(reducer, initialState)
-    
-
-
-
-
-
-}
+// LOGIN ACTIONS

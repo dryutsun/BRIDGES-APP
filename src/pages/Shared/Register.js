@@ -2,27 +2,24 @@ import React from "react";
 import Wrapper from "../../assets/wrappers/RegisterPage";
 import Logo from "../../components/Logo";
 import FormRow from "../../components/FormRow";
-import UserTypeToggle from "../../components/UserTypeToggle";
 import { useState } from "react";
+import ToggleWrapper from "../../assets/wrappers/UserTypeToggle";
 
 const initialState = {
   name: "",
   email: "",
   password: "",
-  porter: false,
   isMember: false,
 };
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
+  const [porter, setPorter] = useState(true)
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+        setValues({ ...values, [e.target.name]: e.target.value })
   };
 
-  const handleToggle = () => {
-    setValues(!values.porter)
-  }
 
   const onSubmit = (x) => {
     return x;
@@ -30,9 +27,9 @@ const Register = () => {
   return (
     <Wrapper className="full-page">
       <form className="form" onSubmit={onSubmit}>
-      <h3>{ !values.isMember ? "Register" : "Login" }</h3>
-      <Logo />
-      
+        <h3>{!values.isMember ? "Register" : "Login"}</h3>
+        <Logo />
+
         <FormRow
           type="text"
           name="name"
@@ -51,8 +48,26 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
         />
-        <UserTypeToggle label={"porter"} id="porter" handleToggle={()=> setValues(!values.porter)} checked={values.porter}/>
-                <button type='submit' className='btn btn-block'>
+        <ToggleWrapper>
+          <div className="container">
+            <small>Register as Customer or Porter?</small>
+            <div className="toggle-switch">
+              <input
+                type="checkbox"
+                className="checkbox"
+                onChange={() => setPorter(!porter)}
+                name="porter"
+                id="porter"
+                value={values.porter}
+              />
+              <label className="label" htmlFor="porter">
+                <span className="inner" />
+                <span className="switch" />
+              </label>
+            </div>
+          </div>
+        </ToggleWrapper>
+        <button type="submit" className="btn btn-block">
           SUBMIT
         </button>
       </form>

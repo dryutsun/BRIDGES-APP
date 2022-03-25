@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Wrapper = styled.section`
+const ToggleWrapper = styled.section`
 
 .container {
   text-align: center;
@@ -79,4 +79,4 @@ small, .small {
 }
 `
 
-export default Wrapper
+export default ToggleWrapper
